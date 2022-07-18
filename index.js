@@ -20,51 +20,56 @@ let calcular = prompt("Ingrese calcular");
 
 let resultado = calculadora(hora, horas, num2, calcular);
 alert(calculadora(hora, horas, num2, calcular)); */
+let contenedor = document.getElementById("trabajadores");
+let trabajadores = [{
+    nombre: "Pedro",
+    apellido: "Martinez",
+    edad: 33,
+    trabajo: "Empleado",
+}, {
+    nombre: "Juan",
+    apellido: "Cuarta",
+    edad: 19,
+    trabajo: "Recepcion",
+}, {
+    nombre: "Marcelo",
+    apellido: "Ramirez",
+    edad: 55,
+    trabajo: "Contabilidad",
+}, {
+    nombre: "Jorge",
+    apellido: "Ruiz",
+    edad: 35,
+    trabajo: "Control de stock",
+}, {
+    nombre: "Manuel",
+    apellido: "Alvarez",
+    edad: 78,
+    trabajo: "Despachante",
 
+}, ];
 
-const trabajadores = [{
-        nombre: "Pedro",
-        apellido: "Martinez",
-        edad: 33,
-        trabajo: "Empleado",
-    },
-    {
-        nombre: "Juan",
-        apellido: "Cuarta",
-        edad: 19,
-        trabajo: "Recepcion",
-    },
-    {
-        nombre: "Marcelo",
-        apellido: "Ramirez",
-        edad: 55,
-        trabajo: "Contabilidad",
-    },
-    {
-        nombre: "Jorge",
-        apellido: "Ruiz",
-        edad: 35,
-        trabajo: "Control de stock",
-    },
-    {
-        nombre: "Manuel",
-        apellido: "Alvarez",
-        edad: 78,
-        trabajo: "Despachante",
-    },
-];
+for (const operario of trabajadores) {
+    let ul = document.createElement("ul");
+    ul.innerHTML = `<h4>Apellido: ${operario.apellido}</h4>
+                      <p>Nombre: ${operario.nombre}</p>
+                      <b>Edad: ${operario.edad}</b>
+                     `;
+    contenedor.append(ul);
+}
+
 /* MUESTRA TODOS LOS EMPLEADOS */
-const nombreCompleto = trabajadores.map(trabajador => trabajador.nombre + " " + trabajador.apellido + " " + trabajador.trabajo);
+/* const nombreCompleto = trabajadores.map(trabajador => trabajador.nombre + " " + trabajador.apellido + " " + trabajador.trabajo);
 
 
-console.log(trabajadores);
+console.log(trabajadores); */
 
 /* FILTRAR POR NOMBRE  */
-const result = trabajadores.find((trabajadores) => trabajadores.nombre === "Jorge");
+/* const result = trabajadores.find((trabajadores) => trabajadores.nombre === "Jorge");
 
-console.log(result);
+console.log(result); */
 
 /* FILTRAR POR EDAD  */
-const edad = trabajadores.filter((trabajadores) => trabajadores.edad > 70);
+/* const edad = trabajadores.filter((trabajadores) => trabajadores.edad > 70);
 
-console.log(edad);
+console.log(edad); */

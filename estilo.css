@@ -16,6 +16,13 @@ h3 {
     padding: 50px;
     text-align: center;
     font-size: 50px;
+}
 
-
+.trabajadores {
+    padding: 50px;
+    text-align: center;
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+    
 }
