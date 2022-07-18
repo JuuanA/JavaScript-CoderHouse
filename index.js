@@ -58,6 +58,21 @@ for (const operario of trabajadores) {
     contenedor.append(ul);
 }
 
+let boton = document.getElementById("btnPrincipal");
+let saludo = document.getElementById("saludo");
+let event = prompt("ingresa el evento");
+
+boton.addEventListener("click", () => {
+    saludo.className = "azul";
+});
+
+boton.addEventListener("mouseover", () => {
+    saludo.className = "verde";
+});
+
+
+
+
 /* MUESTRA TODOS LOS EMPLEADOS */
 /* const nombreCompleto = trabajadores.map(trabajador => trabajador.nombre + " " + trabajador.apellido + " " + trabajador.trabajo);
 

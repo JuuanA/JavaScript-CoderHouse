@@ -18,11 +18,33 @@ h3 {
     font-size: 50px;
 }
 
-.trabajadores {
+#trabajadores {
     padding: 50px;
     text-align: center;
     font-size: 50px;
     display: flex;
     justify-content: space-around;
-    
+}
+
+#btnPrincipal {
+    font-size: 30px;
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.azul {
+    background: blue;
+}
+
+.amarillo {
+    background: yellow;
+}
+
+.verde {
+    background: green;
 }
