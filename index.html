@@ -11,10 +11,23 @@
 </head>
 
 <body>
-    <h2>Esta pagina contiene una calculadora de salarios BASICA</h2>
-    <h3 id="saludo">Por favor cuando ponga las horas EXTRAS , ponerlas ya con el descuento necesario segun el caso</h3>
-    <button id="btnPrincipal">Mostrar</button>
-    <ul id="trabajadores" class="pedrito"></ul>
+    <h2>Esta pagina contiene un Storage de trabajadores </h2>
+    <h3 id="saludo">Por favor ingrese en cada casillero lo que corresponda</h3>
+
+    <form id="formulario">
+        <input type="text" id="nombre" placeholder="Ingrese Nombre">
+        <input type="number" id="edad" placeholder="Ingrese Edad">
+        <input type="text" id="apellido" placeholder="Ingrese Apellido">
+        <input type="text" id="trabajo" placeholder="Ingrese Tipo de Trabajo">
+        <input type="submit">
+    </form>
+
+    <button id="borrado">Borrar Storage</button>
+
+    <button id="verProductos">Mostrar trabajadores</button>
+
+    <div id="contenedor"></div>
+
     <script src="index.js"></script>
 </body>
 

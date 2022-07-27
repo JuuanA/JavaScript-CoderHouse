@@ -1,90 +1,80 @@
-/* mensaje();
+const trabajador = [{
 
-function mensaje() {
-    let usuario = prompt("ingrese su nombre");
-    let saludo = `Bienvenido a la calculadora de salarios ${usuario}`;
-    alert(saludo);
-}
-
-function calculadora(hora, horas, num2, calcular) {
-    switch (calcular) {
-        case "calcular":
-            return hora * horas + num2;
+        id: 1,
+        nombre: "Pedro",
+        apellido: "Martinez",
+        edad: 33,
+        trabajo: "Empleado",
+    }, {
+        id: 2,
+        nombre: "Juan",
+        apellido: "Cuarta",
+        edad: 19,
+        trabajo: "Recepcion",
+    }, {
+        nombre: "Marcelo",
+        apellido: "Ramirez",
+        edad: 55,
+        trabajo: "Contabilidad",
+    }, {
+        id: 4,
+        nombre: "Jorge",
+        apellido: "Ruiz",
+        edad: 35,
+        trabajo: "Control de stock",
+    },
+    {
+        id: 5,
+        nombre: "Manuel",
+        apellido: "Alvarez",
+        edad: 78,
+        trabajo: "Despachante",
     }
-}
+];
+let formulario = document.getElementById("formulario");
+let boton = document.getElementById("verProductos");
+let contenedor = document.getElementById("contenedor");
+let botonBorrado = document.getElementById("borrado");
 
-let hora = parseInt(prompt("Ingrese valor de hora"));
-let num2 = parseInt(prompt("Ingrese la liquidacion de hora extra"));
-let horas = parseInt(prompt("Ingrese horas trabajadas"))
-let calcular = prompt("Ingrese calcular");
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-let resultado = calculadora(hora, horas, num2, calcular);
-alert(calculadora(hora, horas, num2, calcular)); */
-let contenedor = document.getElementById("trabajadores");
-let trabajadores = [{
-    nombre: "Pedro",
-    apellido: "Martinez",
-    edad: 33,
-    trabajo: "Empleado",
-}, {
-    nombre: "Juan",
-    apellido: "Cuarta",
-    edad: 19,
-    trabajo: "Recepcion",
-}, {
-    nombre: "Marcelo",
-    apellido: "Ramirez",
-    edad: 55,
-    trabajo: "Contabilidad",
-}, {
-    nombre: "Jorge",
-    apellido: "Ruiz",
-    edad: 35,
-    trabajo: "Control de stock",
-}, {
-    nombre: "Manuel",
-    apellido: "Alvarez",
-    edad: 78,
-    trabajo: "Despachante",
+    let trabajadoresLista;
+    let trabajadorStorage = JSON.parse(localStorage.getItem("trabajador"));
 
-}, ];
+    let pase = (trabajadorStorage = trabajadoresLista) ? true : false;
+    pase ? (trabajadorStorage) : (trabajadoresLista = []);
 
-for (const operario of trabajadores) {
-    let ul = document.createElement("ul");
-    ul.innerHTML = `<h4>Apellido: ${operario.apellido}</h4>
-                      <p>Nombre: ${operario.nombre}</p>
-                      <b>Edad: ${operario.edad}</b>
-                     `;
-    contenedor.append(ul);
-}
+    /* if (trabajadorStorage) {
+        trabajadoresLista = trabajadorStorage;
+    } else {
+        trabajadoresLista = [];
+    } */
+    let resultado = {
+        nombre: e.target.children[0].value,
+        edad: e.target.children[1].value,
+        apellido: e.target.children[2].value,
+        trabajo: e.target.children[3].value
+    }
 
-let boton = document.getElementById("btnPrincipal");
-let saludo = document.getElementById("saludo");
-let event = prompt("ingresa el evento");
+    trabajadoresLista.push(resultado);
+    localStorage.setItem("trabajador", JSON.stringify(trabajadoresLista));
+})
 
 boton.addEventListener("click", () => {
-    saludo.className = "azul";
+    contenedor.innerHTML = " ";
+    let trabajador = JSON.parse(localStorage.getItem("trabajador"));
+
+    trabajador.forEach(element => {
+        let item = document.createElement("div");
+        item.innerHTML = `
+                        nombre: ${element.nombre},
+                        apellido:  ${element.apellido}
+                        trabajo:  ${element.trabajo}`;
+        contenedor.append(item);
+    });
+})
+
+botonBorrado.addEventListener("click", () => {
+    localStorage.removeItem("trabajador");
 });
-
-boton.addEventListener("mouseover", () => {
-    saludo.className = "verde";
-});
-
-
-
-
-/* MUESTRA TODOS LOS EMPLEADOS */
-/* const nombreCompleto = trabajadores.map(trabajador => trabajador.nombre + " " + trabajador.apellido + " " + trabajador.trabajo);
-
-
-console.log(trabajadores); */
-
-/* FILTRAR POR NOMBRE  */
-/* const result = trabajadores.find((trabajadores) => trabajadores.nombre === "Jorge");
-
-console.log(result); */
-
-/* FILTRAR POR EDAD  */
-/* const edad = trabajadores.filter((trabajadores) => trabajadores.edad > 70);
-
-console.log(edad); */

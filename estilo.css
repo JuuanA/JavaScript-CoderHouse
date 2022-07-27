@@ -18,7 +18,13 @@ h3 {
     font-size: 50px;
 }
 
-#trabajadores {
+form {
+    padding: 50px;
+    text-align: center;
+    font-size: 50px;
+}
+
+#contenedor {
     padding: 50px;
     text-align: center;
     font-size: 50px;
@@ -26,7 +32,8 @@ h3 {
     justify-content: space-around;
 }
 
-#btnPrincipal {
+#verProductos {
+    margin: 14px;
     font-size: 30px;
     height: auto;
     width: auto;
@@ -37,14 +44,14 @@ h3 {
     margin-right: auto;
 }
 
-.azul {
-    background: blue;
-}
 
-.amarillo {
-    background: yellow;
-}
-
-.verde {
-    background: green;
+#borrado {
+    font-size: 30px;
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: auto;
 }
