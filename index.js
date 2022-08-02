@@ -36,11 +36,12 @@ let boton = document.getElementById("verProductos");
 let contenedor = document.getElementById("contenedor");
 let botonBorrado = document.getElementById("borrado");
 
+let trabajadoresLista = JSON.parse(localStorage.getItem("trabajadores")) || trabajador.map(trabajador => trabajador);
+
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let trabajadoresLista;
-    let trabajadorStorage = JSON.parse(localStorage.getItem("trabajador"));
+    /*     let trabajadorStorage = JSON.parse(localStorage.getItem("trabajador")); */
 
     let pase = (trabajadorStorage = trabajadoresLista) ? true : false;
     pase ? (trabajadorStorage) : (trabajadoresLista = []);
@@ -56,16 +57,21 @@ formulario.addEventListener("submit", (e) => {
         apellido: e.target.children[2].value,
         trabajo: e.target.children[3].value
     }
-
     trabajadoresLista.push(resultado);
-    localStorage.setItem("trabajador", JSON.stringify(trabajadoresLista));
+
+    localStorage.setItem("trabajadores", JSON.stringify(trabajadoresLista));
+
+    e.target.reset();
+
+    /*    trabajadoresLista.push(resultado);
+       localStorage.setItem("trabajador", JSON.stringify(trabajadoresLista)); */
 })
 
 boton.addEventListener("click", () => {
+    Swal.fire('Se muestran los trabajadores')
     contenedor.innerHTML = " ";
-    let trabajador = JSON.parse(localStorage.getItem("trabajador"));
 
-    trabajador.forEach(element => {
+    trabajadoresLista.forEach(element => {
         let item = document.createElement("div");
         item.innerHTML = `
                         nombre: ${element.nombre},
@@ -76,5 +82,59 @@ boton.addEventListener("click", () => {
 })
 
 botonBorrado.addEventListener("click", () => {
-    localStorage.removeItem("trabajador");
-});
+    Swal.fire({
+        title: '¿Estas seguro de borrar Storage?',
+        text: "No se puede revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si , borrar!',
+    }).then((result) => {
+        localStorage.removeItem("trabajadores")
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Borrado!',
+                'Storage fue borrado.',
+                'success',
+                location.reload()
+            )
+        }
+    })
+})
+
+
+
+
+
+
+/* me paso emiliano */
+
+/* botonBorrado.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estas seguro de borrar Storage?',
+        text: "No se puede revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si , borrar!',
+        href: location.reload()
+    })
+}); */
+
+
+
+
+
+
+/* ORIGINAL  */
+
+/* title: '¿Estas seguro de borrar Storage?',
+    text: "No se puede revertir!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si , borrar!', */
+/*         location.reload();   No funciona , VER */
