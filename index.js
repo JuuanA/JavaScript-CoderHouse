@@ -40,17 +40,9 @@ let trabajadoresLista = JSON.parse(localStorage.getItem("trabajadores")) || trab
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    /*     let trabajadorStorage = JSON.parse(localStorage.getItem("trabajador")); */
-
     let pase = (trabajadorStorage = trabajadoresLista) ? true : false;
     pase ? (trabajadorStorage) : (trabajadoresLista = []);
 
-    /* if (trabajadorStorage) {
-        trabajadoresLista = trabajadorStorage;
-    } else {
-        trabajadoresLista = [];
-    } */
     let resultado = {
         nombre: e.target.children[0].value,
         edad: e.target.children[1].value,
@@ -62,9 +54,6 @@ formulario.addEventListener("submit", (e) => {
     localStorage.setItem("trabajadores", JSON.stringify(trabajadoresLista));
 
     e.target.reset();
-
-    /*    trabajadoresLista.push(resultado);
-       localStorage.setItem("trabajador", JSON.stringify(trabajadoresLista)); */
 })
 
 boton.addEventListener("click", () => {
