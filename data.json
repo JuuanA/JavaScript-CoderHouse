@@ -1,0 +1,33 @@
+[{
+
+        "id": 1,
+        "nombre": "Pedro",
+        "apellido": "Martinez",
+        "edad": 33,
+        "trabajo": "Empleado"
+    }, {
+        "id": 2,
+        "nombre": "Juan",
+        "apellido": "Cuarta",
+        "edad": 19,
+        "trabajo": "Recepcion"
+    }, {
+        "nombre": "Marcelo",
+        "apellido": "Ramirez",
+        "edad": 55,
+        "trabajo": "Contabilidad"
+    }, {
+        "id": 4,
+        "nombre": "Jorge",
+        "apellido": "Ruiz",
+        "edad": 35,
+        "trabajo": "Control de stock"
+    },
+    {
+        "id": 5,
+        "nombre": "Manuel",
+        "apellido": "Alvarez",
+        "edad": 78,
+        "trabajo": "Despachante"
+    }
+]
