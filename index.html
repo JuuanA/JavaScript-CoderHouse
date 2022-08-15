@@ -16,12 +16,13 @@
 <body class="bodyPrincipal">
     <h2>Esta pagina contiene un Storage de trabajadores </h2>
     <h2 id="saludo">Por favor ingrese en cada casillero lo que corresponda</h3>
+        <h3>Todos los campos son OBLIGATORIOS, Sino no funcionara</h3>
         <div class="FormularioDiv">
             <form id="formulario">
-                <input type="text" id="nombre" placeholder="Ingrese Nombre" class="formulario">
-                <input type="number" id="edad" placeholder="Ingrese Edad" class="formulario">
-                <input type="text" id="apellido" placeholder="Ingrese Apellido" class="formulario">
-                <input type="text" id="trabajo" placeholder="Ingrese Tipo de Trabajo" class="formulario">
+                <input type="text" id="nombre" placeholder="Ingrese Nombre" class="formulario" required>
+                <input type="number" id="edad" placeholder="Ingrese Edad" class="formulario" required>
+                <input type="text" id="apellido" placeholder="Ingrese Apellido" class="formulario" required>
+                <input type="text" id="trabajo" placeholder="Ingrese Tipo de Trabajo" class="formulario" required>
                 <input type="submit" class="btn btn-primary">
             </form>
         </div>
